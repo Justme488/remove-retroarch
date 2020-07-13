@@ -1,0 +1,66 @@
+#!/usr/bin/env bash
+
+# This script will undo all the changes from updatera
+
+# Remove Retroarch dependents
+read -p "Do you want to remove Retroarch build dependencies (y/n)?" choice1
+if [ "$choice1" = "y" ]; then
+  sudo apt-get autoremove $(apt-cache showsrc retroarch | sed -e '/Build-Depends/!d;s/Build-Depends: \|,\|([^)]*),*\|\[[^]]*\]//g')
+elif [ "$choice1" = "n" ]; then
+  echo "We will leave them"
+else
+  echo "Please select y or n"
+fi
+
+clear
+
+# Remove git
+read -p "Do you want to remove git (y/n)?" choice2
+if [ "$choice2" = "y" ]; then
+  sudo apt-get autoremove git
+elif [ "$choice1" = "n" ]; then
+  echo "We will leave it"
+else
+  echo "Please select y or n"
+fi
+
+clear
+
+# Remove nasm
+read -p "Do you want to remove nasm (y/n)?" choice3
+if [ "$choice3" = "y" ]; then
+  sudo apt-get autoremove nasm
+elif [ "$choice1" = "n" ]; then
+  echo "We will leave it"
+else
+  echo "Please select y or n"
+fi
+
+# Delete /home/username/.local/src/libretro-super
+rm -R -f "$HOME"/.local/src/libretro-super
+
+# See if /home/username/.local/src is empty, and delete if it is
+if [ -z "$(ls -A "$HOME"/.local/src)" ]; then
+   rm -R -f "$HOME"/.local/src
+fi
+
+# Delete "retroarch", and "updatera" from /home/username/.local/bin
+rm -f "$HOME"/.local/bin/retroarch
+rm -f "$HOME"/.local/bin/updatera
+
+# See if /home/username/.local/bin is empty, and delete if it is
+if [ -z "$(ls -A "$HOME"/.local/bin)" ]; then
+   rm -R -f "$HOME"/.local/bin
+fi
+
+# Delete /home/username/.config/retroarch
+rm -R -f "$HOME"/.config/retroarch
+
+# Delete "Retroarch", and "Update Retroarch" shortcuts from /home/username/.local/share/applications
+rm -f "$HOME"/.local/share/applications/retroarch.desktop
+rm -f "$HOME"/.local/share/applications/update-retroarch.desktop
+clear
+
+echo "Everything updatera has installed, has been deleted"
+echo ""
+read -p "Press any key to exit" -n1 -s
