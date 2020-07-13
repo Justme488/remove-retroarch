@@ -3,3 +3,6 @@
 ### It deletes the dependencies (if you choose to), files, and folders that were created.
 
 ![image](https://github.com/Justme488/screenshots/blob/master/uninstall-ra/uninstall-ra-build-deps.png)
+![image](https://github.com/Justme488/screenshots/blob/master/uninstall-ra/uninstall-git.png)
+![image](https://github.com/Justme488/screenshots/blob/master/uninstall-ra/uninstall%20nasm.png)
+![image](https://github.com/Justme488/screenshots/blob/master/uninstall-ra/uninstall-finished.png)
