@@ -1,6 +1,5 @@
-### This is a script to undo everything that [updatera](https://github.com/Justme488/updatera) did.
-
-### It deletes the dependencies (if you choose to), files, and folders that were created.
+### This is a script to remove files/folders that [updatera](https://github.com/Justme488/updatera) installed.
+###(Does not remove build dependencies. Removing build dependencies is known to break systems)
 
 ![image](https://github.com/Justme488/screenshots/blob/master/uninstall-ra/)
 ![image](https://github.com/Justme488/screenshots/blob/master/uninstall-ra/)
