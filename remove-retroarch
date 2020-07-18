@@ -118,8 +118,8 @@ clear
 # Remove any log files
 echo -e "${GREEN}Removing ${RED}log files from ${RED}${HOME}/.config${NC}"
 cd "$HOME"/.config
-rm -f build-retroarch*.log
-rm -f update-retroarch*.log
+rm -f build-retroarch.log
+rm -f update-retroarch.log
 sleep 3
 clear
 
