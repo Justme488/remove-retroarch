@@ -18,7 +18,7 @@ clear
 # Remove /home/username/.local/src/libretro-super if it exists
 if [[ -d "${HOME}/.local/src/libretro-super" ]]; then
   echo -e "${GREEN}Removing folder ${RED}libretro-super ${GREEN}from ${RED}${HOME}/.local/src${NC}"
-  rm -R -f "${HOME}/.local/src/libretro-super"
+  rm -R -f "$HOME"/.local/src/libretro-super
 else
   echo -e "${RED}${HOME}/.local/src/libretro-super ${GREEN}doesn't exist${NC}"
   echo ""
@@ -30,7 +30,7 @@ clear
 # See if /home/username/.local/src exists and empty, and remove if it is
 if [[ -d "${HOME}/.local/src" ]] && [[ -z "$(ls -A "${HOME}/.local/src")" ]]; then
   echo -e "${GREEN}Removing empty folder ${RED}src ${GREEN}from ${RED}${HOME}/.local${NC}"
-  rm -R -f "${HOME}/.local/src"
+  rm -rf  "$HOME"/.local/src
 elif [[ -d "${HOME}/.local/src" ]] && [[ ! -z "$(ls -A "${HOME}/.local/src")" ]]; then
   echo -e "${RED}${HOME}/.local/src ${GREEN}exists, but not empty so not removed${NC}"
 else
@@ -44,7 +44,7 @@ clear
 # Remove "retroarch" from /home/username/.local/bin if it exists
 if [[ -f "${HOME}/.local/bin/retroarch" ]]; then
   echo -e "${GREEN}Removing ${RED}retroarch ${GREEN}from ${RED}${HOME}/.local/bin${NC}"
-  rm -f "${HOME}/.local/bin/retroarch"
+  rm -f "$HOME"/.local/bin/retroarch
 else
   echo -e "${RED}${HOME}/.local/bin/retroarch ${GREEN}doesn't exist${NC}"
   echo ""
@@ -56,7 +56,7 @@ clear
 # Remove "update-retroarch" from /home/username/.local/bin if it exists
 if [[ -f "${HOME}/.local/bin/update-retroarch" ]]; then
   echo -e "${GREEN}Removing ${RED}update-retroarch ${GREEN}from ${RED}${HOME}/.local/bin${NC}"
-  rm -f "${HOME}/.local/bin/update-retroarch"
+  rm -f "$HOME"/.local/bin/update-retroarch
 else
   echo -e "${RED}${HOME}/.local/bin/update-retroarch ${GREEN}doesn't exist${NC}"
   echo ""
@@ -68,7 +68,7 @@ clear
 # See if /home/username/.local/bin is empty, and remove if it is
 if [[ -d "${HOME}/.local/bin" ]] && [[ -z "$(ls -A "${HOME}/.local/bin")" ]]; then
   echo -e "${GREEN}Removing empty folder ${RED}bin ${GREEN}from ${RED}${HOME}/.local${NC}"
-  rm -R -f "${HOME}/.local/bin"
+  rm -rf "$HOME"/.local/bin
 elif [[ -d "${HOME}/.local/bin" ]] && [[ ! -z "$(ls -A "${HOME}/.local/bin")" ]]; then
   echo -e "${RED}${HOME}/.local/bin ${GREEN}exists, but not empty so not removed${NC}"
 else
@@ -82,7 +82,7 @@ clear
 # Remove /home/username/.config/retroarch if it exists
 if [[ -d "${HOME}/.config/retroarch" ]]; then
   echo -e "${GREEN}Removing folder ${RED}retroarch ${GREEN}from ${RED}${HOME}/.config${NC}"
-  rm -R -f "${HOME}/.config/retroarch"
+  rm -rf "$HOME"/.config/retroarch
 else
   echo -e "${RED}${HOME}/.config/retroarch ${GREEN}doesn't exist${NC}"
   echo ""
@@ -94,7 +94,7 @@ clear
 # Remove "Retroarch" shortcut from /home/username/.local/share/applications
 if [[ -f "${HOME}/.local/share/applications/retroarch.desktop" ]]; then
   echo -e "${GREEN}Removing ${RED}retroarch.desktop ${GREEN}from ${RED}${HOME}/.local/share/applications${NC}"
-  rm -f "${HOME}/.local/share/applications/retroarch.desktop"
+  rm -f "$HOME"/.local/share/applications/retroarch.desktop
 else
   echo -e "${RED}${HOME}/.local/share/applications/retroarch.desktop ${GREEN}doesn't exist${NC}"
   echo ""
@@ -106,7 +106,7 @@ clear
 # Remove " Update Retroarch" shortcut from /home/username/.local/share/applications
 if [[ -f "${HOME}/.local/share/applications/update-retroarch.desktop" ]]; then
   echo -e "${GREEN}Removing ${RED}update-retroarch.desktop ${GREEN}from ${RED}${HOME}/.local/share/applications${NC}"
-  rm -f "${HOME}/.local/share/applications/update-retroarch.desktop"
+  rm -f "$HOME"/.local/share/applications/update-retroarch.desktop
 else
   echo -e "${RED}${HOME}/.local/share/applications/update-retroarch.desktop ${GREEN}doesn't exist${NC}"
   echo ""
@@ -116,10 +116,10 @@ sleep 3
 clear
 
 # Remove any log files
-echo -e "${GREEN}Removing ${RED}log files${NC}"
-cd "${HOME}/.config"
-rm -f "build-retroarch*.log"
-rm -f "update-retroarch*.log"
+echo -e "${GREEN}Removing ${RED}log files from ${RED}${HOME}/.config${NC}"
+cd "$HOME"/.config
+rm -f build-retroarch*.log
+rm -f update-retroarch*.log
 sleep 3
 clear
 
